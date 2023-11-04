@@ -3,7 +3,28 @@ entries:
   jira:
   - apiVersion: v2
     appVersion: 9.11.2
-    created: "2023-11-04T14:12:47.557815142+01:00"
+    created: "2023-11-04T18:04:57.972583+01:00"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.9.13
+    description: A Helm chart for Kubernetes
+    digest: af02070890d1de6b85c176fab77967e9264c1d122b4a2624312f61ca45028c04
+    keywords:
+    - jira
+    maintainers:
+    - email: raimangsxr@hotmail.com
+      name: raimangsxr
+    name: jira
+    sources:
+    - https://github.com/raimangsxr/jira
+    type: application
+    urls:
+    - jira-0.2.tgz
+    version: "0.2"
+  - apiVersion: v2
+    appVersion: 9.11.2
+    created: "2023-11-04T18:04:57.968062+01:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -22,4 +43,4 @@ entries:
     urls:
     - jira-0.1.tgz
     version: "0.1"
-generated: "2023-11-04T14:12:47.551562142+01:00"
+generated: "2023-11-04T18:04:57.962973+01:00"
