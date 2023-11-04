@@ -1,12 +1,38 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-jira-data
-  labels:
-    type: local
+  annotations:
+    pv.kubernetes.io/provisioned-by: zfs.csi.openebs.io
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-db70c151-9d67-4cd9-954b-40d639ca4fef
 spec:
+  accessModes:
+  - {{ .Values.filestore.filesystem.persistence.accessMode }}
   capacity:
-    storage: 1Gi
-  hostPath:
-    path: "/mnt/raid_pool/apps-volumes/jira-data"
+    storage: {{ .Values.filestore.filesystem.persistence.size }}
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: {{ template "jira.fullname" . }}-data
+  csi:
+    driver: zfs.csi.openebs.io
+    fsType: zfs
+    volumeAttributes:
+      openebs.io/cas-type: localpv-zfs
+      openebs.io/poolname: raid_pool/ix-applications/releases/{{ template "jira.fullname" . }}/volumes
+      # storage.kubernetes.io/csiProvisionerIdentity: 1667481468361-8081-zfs.csi.openebs.io
+    volumeHandle: pvc-db70c151-9d67-4cd9-954b-40d639ca4fef
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: openebs.io/nodeid
+          operator: In
+          values:
+          - ix-truenas
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: ix-storage-class-{{ template "jira.fullname" . }}
+  volumeMode: Filesystem
+status:
+  phase: Bound

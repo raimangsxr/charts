@@ -14,4 +14,4 @@ dependencies:
   version: "11.9.13"
   repository: "https://charts.bitnami.com/bitnami"
 type: application
-version: 0.1
+version: 0.2
