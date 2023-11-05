@@ -8,9 +8,9 @@ metadata:
   name: pvc-db70c151-9d67-4cd9-954b-40d639ca4fef
 spec:
   accessModes:
-  - {{ .Values.filestore.filesystem.persistence.accessMode }}
+  - {{ .Values.filestore.accessMode }}
   capacity:
-    storage: {{ .Values.filestore.filesystem.persistence.size }}
+    storage: {{ .Values.filestore.size }}
   claimRef:
     apiVersion: v1
     kind: PersistentVolumeClaim

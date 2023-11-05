@@ -45,14 +45,19 @@ spec:
           env:
             - name: TZ
               value: "Europe/Madrid"
+            {{- range .Values.ingress.hosts }}
+            - name: JIRA_FQDN
+              value: {{ .host }}
+            {{- end }}
           volumeMounts:
-            - mountPath: {{ .Values.filestore.filesystem.path }}
+            - mountPath: {{ .Values.filestore.path }}
               name: jira-data
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: jira-data
-          {{- if and (eq .Values.filestore.backend "filesystem") .Values.filestore.filesystem.persistence.enabled }}
+          hostPath:
+            path: {{ .Values.filestore.hostPath }}
           persistentVolumeClaim:
             claimName: {{ template "jira.fullname" . }}-data
           {{- else }}
