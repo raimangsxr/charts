@@ -43,9 +43,9 @@ serviceAccount:
 podAnnotations: {}
 
 podSecurityContext:
-  fsGroup: 999
-  runAsUser: 999
-  runAsGroup: 999
+  fsGroup: 568
+  runAsUser: 568
+  runAsGroup: 568
 
 securityContext:
   # capabilities:
@@ -53,9 +53,9 @@ securityContext:
   #   - ALL
   # readOnlyRootFilesystem: true
   runAsNonRoot: true
-  fsGroup: 999
-  runAsUser: 999
-  runAsGroup: 999
+  fsGroup: 568
+  runAsUser: 568
+  runAsGroup: 568
 
 service:
   name: jira
