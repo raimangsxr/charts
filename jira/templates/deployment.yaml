@@ -45,10 +45,6 @@ spec:
           env:
             - name: TZ
               value: "Europe/Madrid"
-            {{- range .Values.ingress.hosts }}
-            - name: JIRA_FQDN
-              value: {{ .host }}
-            {{- end }}
           volumeMounts:
             - mountPath: {{ .Values.filestore.path }}
               name: jira-data
