@@ -298,7 +298,7 @@ resources:
 ##
 podSecurityContext:
   enabled: true
-  fsGroup: 1001
+  fsGroup: 568
 ## Configure Container Security Context (only main container)
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
 ## @param containerSecurityContext.enabled Enabled containers' Security Context
@@ -312,7 +312,7 @@ podSecurityContext:
 ##
 containerSecurityContext:
   enabled: true
-  runAsUser: 1001
+  runAsUser: 568
   runAsNonRoot: true
   privileged: false
   readOnlyRootFilesystem: false
@@ -614,7 +614,7 @@ mariadb:
       size: 8Gi
       ## @param mariadb.primary.persistence.hostPath Set path in case you want to use local host path volumes (not recommended in production)
       ##
-      hostPath: ""
+      hostPath: "/mnt/raid_pool/apps-volumes/moodle-data"
       ## @param mariadb.primary.persistence.existingClaim Name of an existing `PersistentVolumeClaim` for MariaDB primary replicas
       ##
       existingClaim: ""
