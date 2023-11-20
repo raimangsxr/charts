@@ -3,7 +3,7 @@ entries:
   jira:
   - apiVersion: v2
     appVersion: 9.11.2
-    created: "2023-11-20T23:52:38.600866853+01:00"
+    created: "2023-11-21T00:17:58.902901554+01:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -24,7 +24,7 @@ entries:
     version: "0.2"
   - apiVersion: v2
     appVersion: 9.11.2
-    created: "2023-11-20T23:52:38.594949953+01:00"
+    created: "2023-11-21T00:17:58.896843054+01:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -56,7 +56,49 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 4.3.0
-    created: "2023-11-20T23:52:38.608149053+01:00"
+    created: "2023-11-21T00:17:58.917805255+01:00"
+    dependencies:
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 14.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Moodle(TM) LMS is an open source online Learning Management System
+      widely used at universities, schools, and corporations. It is modular and highly
+      adaptable to any type of online learning.
+    digest: fa0f95e250e5ba9721bc9f06623fc9cd67760bd0d59c4965f847cffba1004d06
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/moodle/img/moodle-stack-220x234.png
+    keywords:
+    - moodle
+    - learning
+    - php
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: moodle
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/moodle
+    urls:
+    - moodle-19.1.2.tgz
+    version: 19.1.2
+  - annotations:
+      category: E-Learning
+      images: |
+        - name: apache-exporter
+          image: docker.io/bitnami/apache-exporter:1.0.3-debian-11-r0
+        - name: moodle
+          image: docker.io/bitnami/moodle:4.3.0-debian-11-r1
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r90
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 4.3.0
+    created: "2023-11-21T00:17:58.911195454+01:00"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -86,4 +128,4 @@ entries:
     urls:
     - moodle-19.1.1.tgz
     version: 19.1.1
-generated: "2023-11-20T23:52:38.587318153+01:00"
+generated: "2023-11-21T00:17:58.891314554+01:00"
